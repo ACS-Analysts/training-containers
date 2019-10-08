@@ -1,0 +1,34 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "openjdk:11",
+      "commit": true,
+      "changes": [
+        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.1.0.jar\"]"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "mkdir -p /opt/hello/lib"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "target/containerdemo-0.1.0-jar-with-dependencies.jar",
+      "destination": "/opt/hello/lib/containerdemo-0.1.0.jar"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "hello",
+        "tag": "latest"
+      }
+    ]
+  ]
+}
