@@ -11,7 +11,7 @@ install the following software prior to beginning this demo:
 
 * [Docker CE v19.0](https://docs.docker.com/install/)
 * [packer v1.4.4](https://packer.io/downloads.html) (optional)
-* [maven v3.3+] (https://maven.apache.org/download.cgi)
+* [maven v3.3+](https://maven.apache.org/download.cgi)
 * Java SDK 11 (choose your own adventure)
 
 ## Doing it manually
