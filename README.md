@@ -78,9 +78,10 @@ Hello world! (1)
 Hello world! (2)
 ```
 
-When you're ready, stop the container:
+When you're ready, stop and remove the container:
 ```
 $ docker stop hello
+$ docker rm hello
 ```
 
 ## Running the image with additional parameters
