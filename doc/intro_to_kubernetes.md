@@ -56,7 +56,7 @@ In order for Kubernetes to be able to see our image the image needs to reside
 in a docker registry visible to the cluster. We could upload the image to a
 remote registry (DockerHub, Artifactory, etc) but for demonstration purposes
 we will install a registry inside the minikube cluster. Luckily, minikube has
-an addon to make the easy.
+an addon to make this easy.
 
 ```
 $ minikube addons enable registry
@@ -99,6 +99,14 @@ You should get back a JSON document:
 $ docker tag hello localhost:5000/hello
 $ docker push localhost:5000/hello
 ```
+
+Running the curl command from above should now show the "hello" repo has
+been added to the registry:
+
+```json
+{"repositories":["hello"]}
+```
+
 
 ### Docker Desktop (MacOS & Windows)
 If you are using Docker Desktop on MacOS or Windows the above commands won't
