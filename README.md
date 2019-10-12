@@ -22,6 +22,6 @@ install the following software prior to beginning this demo:
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)
 * [Intro to Kubernetes](doc/intro_to_kubernetes.md)
-* [Intro to Helm]()
-* [Intro to Networking in Docker]()
-* [Intro to Networking in Kubernetes]()
+* [Intro to Helm](doc/intro_to_helm.md)
+* [Intro to Networking in Docker](doc/intro_to_networking_in_docker.md)
+* [Intro to Networking in Kubernetes](doc/intro_to_networking_in_k8s.md)
