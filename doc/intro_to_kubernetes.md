@@ -227,5 +227,18 @@ command:
 $ kubectl describe po hello
 ```
 
+## Shutting down minikube
+Safely stop the minikube cluster and any VMs associated with it:
+```
+$ minikube stop
+```
+
+## Destroying the cluster
+If you're needing to start from scratch you can delete the minikube cluster and start over:
+
+```
+$ minikube delete
+```
+
 ## Up Next
 Next up is an [introduction to Helm](intro_to_helm.md).
