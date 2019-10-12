@@ -85,6 +85,12 @@ $ docker stop hello
 $ docker rm hello
 ```
 
+You can also delete a running conatiner using the `--force` option:
+
+```
+$ docker rm --force hello
+```
+
 ### Running the image with additional parameters
 The app supports changing the message by passing a command line parameter. This can be passed to the `docker run` command:
 ```
@@ -131,6 +137,9 @@ $ docker image ls
 
 ### More Commands
 For a complete list of supported docker commands see the [Docker CLI reference](https://docs.docker.com/engine/reference/commandline/docker/).
+
+## Up Next
+Next up is an [introduction to Kubernetes](intro_to_kubernetes.md).
 
 ## References
 * [What is a container?](https://www.docker.com/resources/what-container)

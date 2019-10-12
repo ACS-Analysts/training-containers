@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+spec:
+  containers:
+    - name: hello-1
+      image: localhost:5000/hello
+      args: ["container 1"]
+    - name: hello-2
+      image: localhost:5000/hello
+      args: ["container 2"]
+  restartPolicy: OnFailure
