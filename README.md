@@ -18,6 +18,7 @@ install the following software prior to beginning this demo:
 * Java SDK 11 (choose your own adventure)
 * [curl](https://github.com/curl/curl)
 * [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
+* [helm](https://github.com/helm/helm) (v2.14.3)
 
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)

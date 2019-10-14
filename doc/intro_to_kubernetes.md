@@ -10,7 +10,7 @@ All commands and file locations are assumed to be run from the root of the
 repository. Please make sure you have installed all the prerequisites from
 the main [README](../README.md).
 
-This module assumes you have already built the container from [Introduction to Continaers](intro_to_containers.md).
+This module assumes you have already built the container from [Introduction to Containers](intro_to_containers.md).
 
 ## Start minikube cluster
 ```
@@ -75,10 +75,11 @@ You should see that the registry service is running on port 80.
 The minikube cluster is running on an isolated network though. Without some
 magic we won't be able to connect. The simplest solution is to use port
 forwarding to attach the port inside the cluster to a port on our local
-network.
+network. The port forward will stay up as long as the process is running,
+so let's ignore any output and run it in the background.
 
 ```
-$ kubectl port-forward -n kube-system svc/registry 5000:80
+$ kubectl port-forward -n kube-system svc/registry 5000:80 &> /dev/null &
 ```
 
 We should now be able to get a response from the registry if we connect to
