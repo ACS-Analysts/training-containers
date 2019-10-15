@@ -1,0 +1,49 @@
+---
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+  with_items: '{{ req_paths }}'
+
+- name: Unpack local archives
+  unarchive:
+    dest: '{{ item.dest }}'
+    src: '{{ item.src }}'
+    remote_src: no
+  with_items: '{{ archives }}'
+  when: item.src is defined
+
+- name: Download URL archives
+  get_url:
+    url: '{{ item.url }}'
+    dest: '{{ arc_path }}'
+  with_items: '{{ archives }}'
+  when: item.url is defined
+
+- name: Unpack URL archives
+  unarchive:
+    dest: '{{ item.dest }}'
+    src: '{{ arc_path }}/{{ item.url | urlsplit("path") | basename }}'
+    remote_src: yes
+  with_items: '{{ archives }}'
+  when: item.url is defined
+
+- name: Setup helm binaries
+  file:
+    state: link
+    src: '{{ helm_path }}/linux-amd64/{{ item }}'
+    dest: '{{ bin_path }}/{{ item }}'
+  with_items: '{{ helm.binaries }}'
+
+- name: Initialize helm
+  shell: '{{ bin_path }}/helm init --client-only'
+
+- name: Install helm plugins
+  shell: '{{ bin_path }}/helm plugin install {{ item.url }} --version {{ item.version }}'
+  with_items: '{{ helm.plugins }}'
+
+- name: Cleanup unneeded files or directories
+  file:
+    path: '{{ item }}'
+    state: absent
+  with_items: '{{ cleanup_paths }}'

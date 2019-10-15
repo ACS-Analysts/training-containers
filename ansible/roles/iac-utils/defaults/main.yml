@@ -1,0 +1,23 @@
+---
+base_path: '/usr/local'
+arc_path: '/tmp/arc'
+bin_path: '{{ base_path }}/bin'
+helm_path: '{{ base_path }}/helm'
+req_paths:
+  - '{{ arc_path }}'
+  - '{{ bin_path }}'
+  - '{{ helm_path }}'
+cleanup_paths:
+  - '{{ arc_path }}'
+archives:
+  - name: 'helm'
+    url: 'https://storage.googleapis.com/kubernetes-helm/helm-v2.13.0-linux-amd64.tar.gz'
+    dest: '{{ helm_path }}'
+  - name: 'packer'
+    url: 'https://releases.hashicorp.com/packer/1.4.1/packer_1.4.1_linux_amd64.zip'
+    dest: '{{ bin_path }}'
+helm:
+  binaries:
+    - helm
+    - tiller
+  plugins: []

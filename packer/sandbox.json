@@ -1,0 +1,30 @@
+{
+  "builders": [
+    {
+      "type": "vagrant",
+      "source_path": "ubuntu/bionic64",
+      "provider": "virtualbox",
+      "add_force": true,
+      "communicator": "ssh"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install -y python python-apt aptitude",
+        "sudo apt-get autoremove -y"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/sandbox.yml"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant"
+    }
+  ]
+}

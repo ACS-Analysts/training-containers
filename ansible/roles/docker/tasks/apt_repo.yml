@@ -1,0 +1,19 @@
+---
+- name: Add key for repository {{ loop_repo.name }} by URL
+  apt_key:
+    url: "{{ loop_repo.key_url }}"
+    state: present
+  when: loop_repo.key_url is defined
+
+- name: Add key for repository {{ loop_repo.name }} by ID
+  apt_key:
+    id: "{{ loop_repo.key_id }}"
+    keyserver: "{{ loop_repo.key_server }}"
+    state: present
+  when: loop_repo.key_id is defined
+
+- name: Add repository {{ loop_repo.name }}
+  apt_repository:
+    repo: "{{ loop_repo.repo }}"
+    filename: "{{ loop_repo.name }}"
+    state: present

@@ -1,0 +1,4 @@
+---
+- name: Install development debian packages
+  apt:
+    name: '{{ debian_pkgs | default([]) }}'

@@ -1,0 +1,18 @@
+---
+- name: Setup OS
+  hosts: default
+  become: yes
+  roles:
+    - common-linux
+
+- name: Setup Sandbox environment
+  hosts: default
+  become: yes
+  roles:
+    - geerlingguy.jenkins
+    - dev-utils
+    - iac-utils
+    - minikube
+  vars:
+    java_packages:
+      - openjdk-11-jdk

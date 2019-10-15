@@ -17,8 +17,10 @@ install the following software prior to beginning this demo:
 * [maven](https://maven.apache.org/download.cgi) (v3.3+)
 * Java SDK 11 (choose your own adventure)
 * [curl](https://github.com/curl/curl)
-* [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
+* [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
 * [helm](https://github.com/helm/helm) (v2.14.3)
+* [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
+* [VirtualBox](https://www.virtualbox.org/) (v6.0.12)
 
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)

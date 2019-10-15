@@ -1,0 +1,39 @@
+---
+- name: Upgrade OS
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Install common debian packages
+  apt:
+    name: '{{ debian_pkgs | default([]) }}'
+
+- name: Set timezone
+  timezone:
+    name: '{{ timezone }}'
+
+- name: Download pip installer
+  get_url:
+    url: 'https://bootstrap.pypa.io/get-pip.py'
+    dest: '/tmp'
+
+- name: Install pip2
+  shell: 'python /tmp/get-pip.py'
+
+- name: Install pip3
+  shell: 'python3 /tmp/get-pip.py'
+
+- name: Cleanup pip installer
+  file:
+    path: '/tmp/get-pip.py'
+    state: absent
+
+- name: Install common Python2 packages
+  pip:
+    name: '{{ python_pkgs | default([]) }}'
+    executable: 'pip2'
+
+- name: Install common Python3 packages
+  pip:
+    name: '{{ python_pkgs | default([]) }}'
+    executable: 'pip3'

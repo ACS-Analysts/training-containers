@@ -1,0 +1,11 @@
+---
+- name: Setup docker repositories
+  include: apt_repo.yml
+  with_items: "{{ debian_repos }}"
+  loop_control:
+    loop_var: loop_repo
+
+- name: Install docker Debian packages
+  apt:
+    name: '{{ debian_pkgs }}'
+    update_cache: yes

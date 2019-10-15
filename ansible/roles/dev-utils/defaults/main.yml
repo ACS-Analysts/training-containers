@@ -1,0 +1,4 @@
+---
+debian_pkgs:
+  - maven
+  - git
