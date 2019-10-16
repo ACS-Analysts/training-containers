@@ -9,3 +9,8 @@
   apt:
     name: '{{ debian_pkgs }}'
     update_cache: yes
+
+- name: Set docker to start on boot
+  service:
+    name: 'docker'
+    enabled: yes
