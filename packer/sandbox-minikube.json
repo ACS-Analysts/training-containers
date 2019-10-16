@@ -1,12 +1,12 @@
 {
   "builders": [
     {
-      "name": "vagrant",
       "type": "vagrant",
       "source_path": "ubuntu/bionic64",
       "provider": "virtualbox",
       "communicator": "ssh",
-      "box_name": "sandbox-minikube"
+      "box_name": "sandbox-minikube",
+      "skip_add": true
     }
   ],
   "provisioners": [
