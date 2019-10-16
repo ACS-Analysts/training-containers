@@ -9,7 +9,7 @@
   hosts: default
   become: yes
   roles:
-    - geerlingguy.jenkins
+    - geerlingguy.java
     - dev-utils
     - iac-utils
     - minikube
