@@ -1,11 +1,14 @@
 {
   "builders": [
     {
+      "name": "vagrant",
       "type": "vagrant",
       "source_path": "ubuntu/bionic64",
       "provider": "virtualbox",
       "add_force": true,
-      "communicator": "ssh"
+      "communicator": "ssh",
+      "box_name": "sandbox-minikube",
+      "box_version": "0.1.0"
     }
   ],
   "provisioners": [
@@ -20,11 +23,6 @@
     {
       "type": "ansible",
       "playbook_file": "ansible/sandbox.yml"
-    }
-  ],
-  "post-processors": [
-    {
-      "type": "vagrant"
     }
   ]
 }
