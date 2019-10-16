@@ -1,0 +1,12 @@
+---
+- name: Install scripts scripts
+  get_url:
+    url: '{{ item.url }}'
+    dest: '{{ bin_path }}/{{ item.name }}'
+  with_items: '{{ scripts }}'
+
+- name: Set script permissions
+  file:
+    mode: 0755
+    path: '{{ bin_path }}/{{ item.name }}'
+  with_items: '{{ scripts }}'
