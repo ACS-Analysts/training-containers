@@ -1,5 +1,5 @@
 ---
-- name: Install scripts scripts
+- name: Install scripts
   get_url:
     url: '{{ item.url }}'
     dest: '{{ bin_path }}/{{ item.name }}'
