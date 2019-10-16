@@ -6,7 +6,8 @@
       "provider": "virtualbox",
       "communicator": "ssh",
       "box_name": "sandbox-minikube",
-      "skip_add": true
+      "skip_add": true,
+      "add_force": true
     }
   ],
   "provisioners": [
