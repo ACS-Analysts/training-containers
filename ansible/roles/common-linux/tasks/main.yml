@@ -8,10 +8,6 @@
   apt:
     name: '{{ debian_pkgs | default([]) }}'
 
-- name: Set timezone
-  timezone:
-    name: '{{ timezone }}'
-
 - name: Download pip installer
   get_url:
     url: 'https://bootstrap.pypa.io/get-pip.py'

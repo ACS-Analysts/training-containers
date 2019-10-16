@@ -11,5 +11,4 @@ debian_pkgs:
   - unzip
   - vim
 python_pkgs:
-  - requests~=2.18.4
-timezone: America/New_York
+  - requests
