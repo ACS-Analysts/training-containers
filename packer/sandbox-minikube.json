@@ -5,10 +5,8 @@
       "type": "vagrant",
       "source_path": "ubuntu/bionic64",
       "provider": "virtualbox",
-      "add_force": true,
       "communicator": "ssh",
-      "box_name": "sandbox-minikube",
-      "box_version": "0.1.0"
+      "box_name": "sandbox-minikube"
     }
   ],
   "provisioners": [
@@ -22,7 +20,7 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "ansible/sandbox.yml"
+      "playbook_file": "ansible/sandbox-minikube.yml"
     }
   ]
 }
