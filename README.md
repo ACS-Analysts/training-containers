@@ -11,7 +11,7 @@ This is an ongoing series.
 Some of the training modules use a sandbox VM to simulate a second machine on
 the network. There's no reason you couldn't run all the tutorial modules in
 the VM though if you'd prefer. The sandbox contains all the prerequisite
-software needed for the demo. For more information, please read [Playing in the Sandbox](docs/playing_in_the_sandbox.md).
+software needed for the demo. For more information, please read [Playing in the Sandbox](doc/playing_in_the_sandbox.md).
 
 ## Prerequisites
 If you'd like to run the training modules on your local machine you'll need
