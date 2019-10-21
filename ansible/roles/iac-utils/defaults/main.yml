@@ -11,7 +11,7 @@ cleanup_paths:
   - '{{ arc_path }}'
 archives:
   - name: 'helm'
-    url: 'https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz'
+    url: 'https://get.helm.sh/helm-v2.15.0-linux-amd64.tar.gz'
     dest: '{{ helm_path }}'
   - name: 'packer'
     url: 'https://releases.hashicorp.com/packer/1.4.4/packer_1.4.4_linux_amd64.zip'

@@ -1,4 +1,4 @@
 ---
 minikube:
   vm_driver: 'none'
-  kubernetes_version: '1.15.4'
+  kubernetes_version: '1.16.0'
