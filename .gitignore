@@ -8,4 +8,5 @@ target/
 *.retry
 *.log
 *.tgz
+.vagrant/
 output-vagrant/
