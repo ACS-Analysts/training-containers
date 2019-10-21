@@ -20,7 +20,12 @@ install the following software prior to beginning this demo:
 * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
 * [helm](https://github.com/helm/helm) (v2.14.3)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
-* [VirtualBox](https://www.virtualbox.org/) (v6.0.12)
+* [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
+
+## Using the sandbox
+Some of the training modules use a sandbox VM to simulate a second machine on
+the network. There's no reason you couldn't run all the tutorial modules in
+the VM though if you'd prefer. For more information, please read [Playing in the Sandbox](playing_in_the_sandbox.md).
 
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)
@@ -28,27 +33,3 @@ install the following software prior to beginning this demo:
 * [Intro to Helm](doc/intro_to_helm.md)
 * [Intro to Networking in Docker](doc/intro_to_networking_in_docker.md)
 * [Intro to Networking in Kubernetes](doc/intro_to_networking_in_k8s.md)
-
-## Building the Sandbox image
-Some of the training modules use a sandbox VM to simulate a second machine on
-the network. I've uploaded the sandbox image to Vagrant Cloud so you don't
-have to build the image yourself. However, if you'd like to build the image
-yourself, I've included a packer build that utilizes vagrant and ansbile to
-provide a Virtualbox image which can be used by vagrant.
-
-NOTE: Just to be clear this is not necessary to run the trainging modules.
-
-To build the image:
-
-```
-$ packer build packer/sandbox-minikube.json
-```
-
-To add your local copy of the vagrant box do the following:
-
-```
-$ vagrant box add --name sandbox-minikube output-vagrant/package.box
-```
-
-Once you've added the box to vagrant the `output-vagrant` directory can be
-deleted.
