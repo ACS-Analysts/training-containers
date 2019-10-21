@@ -4,6 +4,8 @@
   become: yes
   roles:
     - common-linux
+  vars:
+    hostname: 'sandbox-minikube.acs.local'
 
 - name: Setup Sandbox environment
   hosts: default
@@ -16,3 +18,8 @@
   vars:
     java_packages:
       - openjdk-11-jdk
+
+- name: User configuration
+  hosts: default
+  roles:
+    - minikube-config

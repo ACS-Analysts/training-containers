@@ -1,0 +1,6 @@
+---
+- name: Configure vm-driver
+  command: minikube config set vm-driver '{{ minikube.vm_driver }}'
+
+- name: Configure Kubernetes version
+  command: minikube config set kubernetes-version '{{ minikube.kubernetes_version }}'

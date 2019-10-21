@@ -4,6 +4,25 @@
     upgrade: dist
     update_cache: yes
 
+- name: Modify hostname
+  hostname:
+    name: '{{ hostname }}'
+  when: hostname is defined
+
+- name: Remove old /etc/hosts data
+  lineinfile:
+    path: '/etc/hosts'
+    regexp: '127.0.1.1.*ubuntu-bionic'
+    state: absent
+  when: hostname is defined
+
+- name: Insert new hostname into /etc/hosts
+  lineinfile:
+    path: '/etc/hosts'
+    regexp: '(127.0.0.1.*localhost)'
+    line: '\1\t{{ hostname }}\t{{ hostname.split(".")[0] }}'
+  when: hostname is defined
+
 - name: Install common debian packages
   apt:
     name: '{{ debian_pkgs | default([]) }}'
