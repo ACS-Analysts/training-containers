@@ -7,10 +7,18 @@ to create more complex examples and explore topics such as deployment and networ
 
 This is an ongoing series.
 
+## Using the sandbox
+Some of the training modules use a sandbox VM to simulate a second machine on
+the network. There's no reason you couldn't run all the tutorial modules in
+the VM though if you'd prefer. The sandbox contains all the prerequisite
+software needed for the demo. For more information, please read [Playing in the Sandbox](playing_in_the_sandbox.md).
+
 ## Prerequisites
-This demo assumes you are running on a Linux box. However, this demo should
-work just fine on Mac or Windows once the software is installed. Please
-install the following software prior to beginning this demo:
+If you'd like to run the training modules on your local machine you'll need
+to install some software. This demo assumes you are running on a Linux box.
+However, this demo should work just fine on Mac or Windows once the software
+is installed. Please install the following software prior to beginning this
+demo:
 
 * [Docker CE](https://docs.docker.com/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop) (v19.0)
 * [packer](https://packer.io/downloads.html) (v1.4.4)
@@ -21,11 +29,6 @@ install the following software prior to beginning this demo:
 * [helm](https://github.com/helm/helm) (v2.15.0)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
 * [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
-
-## Using the sandbox
-Some of the training modules use a sandbox VM to simulate a second machine on
-the network. There's no reason you couldn't run all the tutorial modules in
-the VM though if you'd prefer. For more information, please read [Playing in the Sandbox](playing_in_the_sandbox.md).
 
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)
