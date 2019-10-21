@@ -23,3 +23,9 @@
   hosts: default
   roles:
     - minikube-config
+
+- name: Cleanup image
+  hosts: default
+  become: yes
+  roles:
+    - common-image-cleanup
