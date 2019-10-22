@@ -51,7 +51,7 @@
                   <goal>single</goal>
                 </goals>
                 <configuration>
-                  <finalName>${pom.artifactId}-${pom.version}-socket</finalName>
+                  <finalName>${project.artifactId}-${project.version}-socket</finalName>
                   <archive>
                     <manifest>
                       <mainClass>
