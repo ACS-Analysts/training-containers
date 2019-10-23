@@ -18,6 +18,7 @@ public class HelloSocket {
             new PrintWriter(sock.getOutputStream(), true).
                 printf("Hello %s! (%d)\n", name, n);
             sock.close();
+            n++;
         }
     }
 }
