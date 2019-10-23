@@ -7,16 +7,10 @@
   command: apt-get clean && apt-get autoclean
 
 - name: Fill empty space with zeros
-  command: dd if=/dev/zero of=/zero bs=1M
+  command: '{{ item }}'
+  with_items:
+    - dd if=/dev/zero of=/zero bs=1M
+    - sync
+    - rm -f /zero
+    - sync
   ignore_errors: yes
-
-- name: Sync filesystem
-  command: sync
-
-- name: Free zero filled space
-  file:
-    path: '/zero'
-    state: absent
-
-- name: Sync filesystem
-  command: sync
