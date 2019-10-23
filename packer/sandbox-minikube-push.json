@@ -32,6 +32,12 @@
   ],
   "post-processors": [
     {
+      "type": "shell-local",
+      "inline": [
+        "shasum -a 256 output-vagrant/package.box"
+      ]
+    },
+    {
       "type": "vagrant-cloud",
       "box_tag": "bwmaas/sandbox-minikube",
       "version": "{{ user `version` }}",
