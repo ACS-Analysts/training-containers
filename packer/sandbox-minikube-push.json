@@ -2,7 +2,8 @@
   "variables": {
     "version": null,
     "version_description": "",
-    "no_release": "true"
+    "no_release": "true",
+    "keep_input_artifact": "false"
   },
   "builders": [
     {
@@ -35,7 +36,8 @@
       "box_tag": "bwmaas/sandbox-minikube",
       "version": "{{ user `version` }}",
       "version_description": "{{ user `version_description` }}",
-      "no_release": "{{ user `no_release` }}"
+      "no_release": "{{ user `no_release` }}",
+      "keep_input_artifact": "{{ user `keep_input_artifact` }}"
     }
   ]
 }
