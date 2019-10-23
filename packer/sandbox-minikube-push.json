@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "version": null,
+    "version_description": "",
+    "no_release": "true"
+  },
+  "builders": [
+    {
+      "type": "vagrant",
+      "source_path": "ubuntu/bionic64",
+      "provider": "virtualbox",
+      "communicator": "ssh",
+      "box_name": "sandbox-minikube",
+      "skip_add": true,
+      "add_force": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install -y python python-apt aptitude",
+        "sudo apt-get autoremove -y"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/sandbox-minikube.yml"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant-cloud",
+      "box_tag": "bwmaas/sandbox-minikube",
+      "version": "{{ user `version` }}",
+      "version_description": "{{ user `version_description` }}",
+      "no_release": "{{ user `no_release` }}"
+    }
+  ]
+}
