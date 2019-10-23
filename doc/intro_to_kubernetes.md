@@ -65,6 +65,9 @@ an addon to make this easy.
 $ minikube addons enable registry
 ```
 
+If you're running minikube on the sandbox (or any other Linux using the
+`vm-driver=none` option) you need to run the command using sudo.
+
 We should now be able to see two new pods running in the "kube-system" namespace
 that start with "registry". We should also now see a new "service" resource
 associated with the registry:
