@@ -13,9 +13,12 @@ the main [README](../README.md).
 This module assumes you have already built the container from [Introduction to Containers](intro_to_containers.md).
 
 ## Start minikube cluster
+### From the Host Machine
 ```
 $ minikube start
 ```
+### From the Sandbox
+Please see [Playing in the Sandbox](playing_in_the_sandbox.md).
 
 ## kubectl
 The main management interface for Kubernetes is the `kubectl` command. It has
