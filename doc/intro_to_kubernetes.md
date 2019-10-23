@@ -1,6 +1,6 @@
 # Intro to Kubernetes
 ## Summary
-In this opening demo we will use the basic container we created in [Introduction to Continaers](intro_to_containers.md)
+In this demo we will use the basic container we created in [Introduction to Continaers](intro_to_containers.md)
 and deploy it to Kubernetes  (also known as "k8s"). We will be using a simple
 single node cluster using `minikube`. Once we've deployed the cluster we will
 show the basics of managing pods and containers in Kubernetes.
