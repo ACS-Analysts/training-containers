@@ -24,11 +24,16 @@ demo:
 * [packer](https://packer.io/downloads.html) (v1.4.4)
 * [maven](https://maven.apache.org/download.cgi) (v3.3+)
 * Java SDK 11 (choose your own adventure)
+* netcat
 * [curl](https://github.com/curl/curl)
 * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
 * [helm](https://github.com/helm/helm) (v2.15.0)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
 * [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
+
+The netcat command (`nc`) should already be installed on Linux and Mac OS X
+machines. Windows users may be forced to use curl instead. This works, you'll
+just get an error when the demo code closes the socket.
 
 ## Training Modules
 * [Intro to Containers and Docker](doc/intro_to_containers.md)
