@@ -5,6 +5,7 @@
       "image": "openjdk:11",
       "commit": true,
       "changes": [
+        "EXPOSE 8080/tcp",
         "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.2.0-socket.jar\"]"
       ]
     }
