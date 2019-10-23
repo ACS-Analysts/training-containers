@@ -2,8 +2,7 @@
   "variables": {
     "version": null,
     "version_description": "",
-    "no_release": "true",
-    "keep_input_artifact": "false"
+    "no_release": "true"
   },
   "builders": [
     {
@@ -43,7 +42,7 @@
       "version": "{{ user `version` }}",
       "version_description": "{{ user `version_description` }}",
       "no_release": "{{ user `no_release` }}",
-      "keep_input_artifact": "{{ user `keep_input_artifact` }}"
+      "keep_input_artifact": false
     }
   ]
 }
