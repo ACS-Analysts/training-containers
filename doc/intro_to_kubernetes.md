@@ -96,18 +96,11 @@ You should get back a JSON document:
 ```
 
 ## Push image to the registry
+### Docker Server (Linux)
 ```
 $ docker tag hello localhost:5000/hello
 $ docker push localhost:5000/hello
 ```
-
-Running the curl command from above should now show the "hello" repo has
-been added to the registry:
-
-```json
-{"repositories":["hello"]}
-```
-
 
 ### Docker Desktop (MacOS & Windows)
 If you are using Docker Desktop on MacOS or Windows the above commands won't
@@ -118,6 +111,14 @@ that only works on Docker Desktop.
 ```
 $ docker tag hello host.docker.internal:5000/hello
 $ docker push host.docker.internal:5000/hello
+```
+
+### Validating the push
+Running the curl command from above should now show the "hello" repo has
+been added to the registry:
+
+```json
+{"repositories":["hello"]}
 ```
 
 ## Creating a K8s Deployment Resource
