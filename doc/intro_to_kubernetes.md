@@ -103,6 +103,8 @@ You should get back a JSON document:
 
 ## Push image to the registry
 ### Docker Server (Linux)
+If you are using Linux (or the sandbox VM) you can use "localhost" to get to
+the registry...
 ```
 $ docker tag hello localhost:5000/hello
 $ docker push localhost:5000/hello
