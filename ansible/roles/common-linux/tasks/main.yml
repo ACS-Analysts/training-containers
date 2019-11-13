@@ -21,6 +21,7 @@
     path: '/etc/hosts'
     regexp: '(127.0.0.1.*localhost)'
     line: '\1\t{{ hostname }}\t{{ hostname.split(".")[0] }}'
+    backrefs: yes
   when: hostname is defined
 
 - name: Install common debian packages
