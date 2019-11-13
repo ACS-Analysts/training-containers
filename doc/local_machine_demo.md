@@ -32,7 +32,7 @@ prior to beginning this demo:
 * netcat
 * [curl](https://github.com/curl/curl)
 * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.4.0)
-* [helm](https://github.com/helm/helm) (v2.15.0)
+* [helm](https://github.com/helm/helm) (v2.16.1)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
 * [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
 
