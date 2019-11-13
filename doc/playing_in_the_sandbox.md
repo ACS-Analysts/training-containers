@@ -128,14 +128,12 @@ $ vagrant ssh
 You should now have a shell prompt logged in as the `vagrant` user on the VM.
 
 ### Next Steps
-At this point you could clone the git repo and run the training modules
-directly on the sandbox.
+The vagrant box will automagically mount your local directory to `/vagrant` on
+the sandbox. To continue using the files from the repo, just go to that
+directory on the sandbox:
 
 ```
-mkdir src
-cd src
-git clone https://github.com/ACS-Analysts/training-containers.git
-cd training-containers
+$ cd /vagrant
 ```
 
 ### Starting minikube
@@ -150,7 +148,7 @@ inside the sandbox do the following:
 
 ```
 $ sudo minikube start
-$ sudo chown -R vagrant:vagrant .kube .minikube
+$ sudo chown -R vagrant:vagrant ~/.kube ~/.minikube
 ```
 
 You should now be able to issue commands to the minikube cluster as the
