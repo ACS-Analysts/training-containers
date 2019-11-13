@@ -1,16 +1,24 @@
 # Playing in the Sandbox
 ## Summary
-Some of the training modules use a sandbox VM to simulate a second machine on
-the network. There's no reason you couldn't run all the tutorial modules in
-the VM though if you'd prefer. The box is runs on VirtualBox and is deployed
-using Vagrant. The use of Vagrant allows for the deployment of pre-configured
-images for several VM images types from a central repoistory ([Vagrant Cloud](https://app.vagrantup.com/)).
+This repo includes a Vagrant box that can run all the demos. The sandbox is
+tested enough now that most users should just use the sandbox. Windows users in
+particular should probably go straight to using the sandbox and not bother
+installing all the required applications. The box runs on VirtualBox and is
+deployed using Vagrant. The use of Vagrant allows for the deployment of
+pre-configured images for several VM images types from a central repository
+([Vagrant Cloud](https://app.vagrantup.com/)).
 
 The sandbox is on Vagrant Cloud as [bwmaas/sandbox-minikube](https://app.vagrantup.com/bwmaas/boxes/sandbox-minikube).
 
 You don't need to configure anything though because the root of the repo
 contains a [Vagrantfile](../Vagrantfile) that will automatically start the
 box for you.
+
+## Prerequisites
+Using the sandbox only requires the following:
+
+* [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
+* [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
 
 ## Configuring Host-Only Networking
 Host-Only networking is a way of configuring your VirtualBox virtual machine to
@@ -85,7 +93,7 @@ VBoxNetworkName: HostInterfaceNetworking-vboxnet0
 
 Make sure that `Status` is `Up`.
 
-## Uaing the sandbox VM
+## Using the sandbox VM
 ### Bring up the vagrant box
 To download the vagrant box (VM image) and instantiate the VM you can `up`
 the vagrant environment.
@@ -151,7 +159,7 @@ vagrant user.
 ## Building the Sandbox image
 I've uploaded the sandbox image to Vagrant Cloud so you don't
 have to build the image yourself. However, if you'd like to build the image
-yourself, I've included a packer build that utilizes vagrant and ansbile to
+yourself, I've included a packer build that utilizes vagrant and ansible to
 provide a VirtualBox image which can be used by vagrant.
 
 NOTE: Just to be clear this is not necessary to run the training modules.
