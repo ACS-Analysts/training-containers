@@ -14,7 +14,7 @@ archives:
     url: 'https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz'
     dest: '{{ helm_path }}'
   - name: 'packer'
-    url: 'https://releases.hashicorp.com/packer/1.4.4/packer_1.4.4_linux_amd64.zip'
+    url: 'https://releases.hashicorp.com/packer/1.4.5/packer_1.4.5_linux_amd64.zip'
     dest: '{{ bin_path }}'
 helm:
   binaries:

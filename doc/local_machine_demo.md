@@ -26,7 +26,7 @@ If you are not going to use the sandbox please install the following software
 prior to beginning this demo:
 
 * [Docker CE](https://docs.docker.com/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop) (v19.0)
-* [packer](https://packer.io/downloads.html) (v1.4.4)
+* [packer](https://packer.io/downloads.html) (v1.4.5)
 * [maven](https://maven.apache.org/download.cgi) (v3.3+)
 * Java SDK 11 (choose your own adventure)
 * netcat
