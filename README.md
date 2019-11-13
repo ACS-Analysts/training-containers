@@ -3,7 +3,12 @@
 This repo provides a series of demos that start with a simple "Hello World"
 Java app and creates a Docker image that can be run either standalone or as
 part of a Kubernetes cluster. Each training module builds on the previous ones
-to create more complex examples and explore topics such as deployment and networking.
+to create more complex examples and explore topics such as deployment and
+networking.
+
+The demos do not necessarily go into details but more show steps to achieve
+goals. The reader is encouraged to use the examples as a starting point for
+their own research.
 
 This is an ongoing series.
 
