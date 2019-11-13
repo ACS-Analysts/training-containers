@@ -10,5 +10,6 @@ debian_pkgs:
   - python3-distutils
   - unzip
   - vim
+  - socat
 python_pkgs:
   - requests
