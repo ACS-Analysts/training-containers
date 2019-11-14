@@ -3,6 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "bwmaas/sandbox-minikube"
+  config.vm.box_version = "~> 0.1.3"
   if Vagrant::Util::Platform.windows? then
       config.vm.network "private_network", ip: "172.16.0.2", name: "VirtualBox Host-Only Ethernet Adapter", adapter: 2
   else
