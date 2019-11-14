@@ -120,6 +120,13 @@ work. This is because behind the scenes Docker is running a thin VM that can't
 see your local network. To work around this you can use a special hostname
 that only works on Docker Desktop.
 
+Because we're not running HTTPS on our registry yet docker will complain if we
+push to it. Follow the instructions [here](https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry).
+Note that if you don't follow the instructions in that link you won't be able
+to upload your image because docker will refuse to connect to an insecure
+registry. We're running an isolated environment so the security risks are
+limited.
+
 ```
 $ docker tag hello host.docker.internal:5000/hello
 $ docker push host.docker.internal:5000/hello
