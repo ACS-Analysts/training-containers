@@ -88,6 +88,24 @@ The new JAR file uses the HelloSocket class as the default class. The container
 just runs the JAR again. If you're interested you can verify this for yourself
 in the [hello-socket.json](../packer/hello-socket.json) file.
 
+Where you run the next few commands depends on if you're using your local host
+or the sandbox VM. Run the commands in the same place you built the `hello`
+demo code.
+
+#### Sandbox
+```
+sandbox$ mvn -Psocket package
+sandbox$ packer build packer/hello-socket.json
+```
+
+Now we can tag our new container for upload to the sandbox registry and push it.
+
+```
+sandbox$ docker tag hello-socket localhost:5000/hello-socket
+sandbox$ docker push localhost:5000/hello-socket
+```
+
+#### Local Host
 ```
 host$ mvn -Psocket package
 host$ packer build packer/hello-socket.json
@@ -95,7 +113,10 @@ host$ packer build packer/hello-socket.json
 
 Because we're not running HTTPS on our registry yet docker will complain if we
 push to it. Follow the instructions [here](https://docs.docker.com/registry/insecure/#deploy-a-plain-http-registry).
-We're running an isolated environment so the security risks are limited.
+Note that if you don't follow the instructions in that link you won't be able
+to upload your image because docker will refuse to connect to an insecure
+registry. We're running an isolated environment so the security risks are
+limited.
 
 Now we can tag our new container for upload to the sandbox registry and push it.
 
@@ -104,8 +125,10 @@ host$ docker tag hello-socket 172.16.0.2:5000/hello-socket
 host$ docker push 172.16.0.2:5000/hello-socket
 ```
 
+
+### Verifying the Image Has Been Uploaded
 You should now see the `hello-socket` repository if you list the registry on
-the sandbox from the host:
+the sandbox from either the sandbox or your local host:
 
 ```json
 {"repositories":["hello-socket"]}
@@ -202,6 +225,9 @@ connection from the sandbox to the container.
 
 Now that the port has been forwarded (proxied) we can attach to it from our
 host machine (note the IP of the sandbox):
+
+NOTE: If your host doesn't have the `nc` tool you may need to install
+[ncat](https://nmap.org/ncat/).
 
 ```
 host$ nc -d 172.16.0.2 8080
