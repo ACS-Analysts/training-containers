@@ -65,19 +65,14 @@ $ helm lint hello
 ```
 
 ### Setup environment
-NOTE: As of this writing helm is not supporting Kubernetes v1.16. In order to test
-helm you will need to downgrade k8s to v1.15. Don't forget to push your image to
-the registry on your minikube cluster.
+Don't forget to push your image to the registry on your minikube cluster.
 
 ```
-$ minikube delete
-$ minikube start --kubernetes-version=1.15.4
-$ kubectl port-forward -n kube-system svc/registry 5000:80 &> /dev/null &
 $ docker push localhost:5000/hello
 ```
 
-NOTE: Docker Desktop users on MacOS and Windows need to remember to use
-`host.docker.internal` rather than `localhost`.
+NOTE: Docker Desktop users on MacOS and Windows who are not using the sandbox
+VM need to remember to use `host.docker.internal` rather than `localhost`.
 
 Once the cluster is up you need to setup helm in the cluster.
 

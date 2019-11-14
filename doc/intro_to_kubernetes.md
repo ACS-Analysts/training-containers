@@ -78,11 +78,15 @@ $ kubectl get svc -n kube-system
 
 You should see that the registry service is running on port 80.
 
-The minikube cluster is running on an isolated network though. Without some
-magic we won't be able to connect. The simplest solution is to use port
-forwarding to attach the port inside the cluster to a port on our local
-network. The port forward will stay up as long as the process is running,
-so let's ignore any output and run it in the background.
+If you're using the sandbox you should be all set to go. However, if you're
+running on your local machine then the minikube cluster is actually running
+on an isolated network. Without some magic we won't be able to connect. The
+simplest solution is to use port forwarding to attach the port inside the
+cluster to a port on our local network. The port forward will stay up as long
+as the process is running, so let's ignore any output and run it in the
+background.
+
+Again, this is not necessary if you're using the sandbox VM.
 
 ```
 $ kubectl port-forward -n kube-system svc/registry 5000:80 &> /dev/null &
