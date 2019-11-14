@@ -192,7 +192,7 @@ file. Note that our pod will have a single container. Also note the optional
 Now let's create our pod:
 
 ```
-$ kubectl apply -f deploy/pod-hello-args.yaml
+$ kubectl apply -f deploy/pod-args.yaml
 ```
 
 List the pods and note that the pod is named "hello" (without all the extra
