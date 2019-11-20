@@ -93,7 +93,7 @@ $ helm install --dry-run --debug hello
 Then try testing passing an argument to the chart:
 
 ```
-$ helm install --dry-run --debug hello --set helloArgs[0]=Ben
+$ helm install --dry-run --debug hello --set 'helloArgs[0]=Ben'
 ```
 
 The output should look similar to the [pod-args.yaml](../deploy/pod-args.yaml)
@@ -141,7 +141,7 @@ YAML file containing the values to be overridden to `helm install` using the
 option. For instance, to pass an argument to our container:
 
 ```
-$ helm install hello --set helloArgs[0]=Ben
+$ helm install hello --set 'helloArgs[0]=Ben'
 ```
 
 In this case we have to specify element zero because helloArgs is an array.
