@@ -27,6 +27,9 @@ using a "Dockerfile". The second is to use packer to build the image which
 will in turn run the docker build for you. For reasons why this might be
 useful, see the [Dockerfile vs Packer](#dockerfile-vs-packer) section.
 
+Please note that you don't need to do both, you can do either Packer or
+Dockerfile.
+
 #### Dockerfile
 To see what how things are defined, look at the Dockerfile:
 ```
