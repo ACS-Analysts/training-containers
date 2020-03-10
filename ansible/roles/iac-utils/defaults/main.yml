@@ -2,22 +2,36 @@
 base_path: '/usr/local'
 arc_path: '/tmp/arc'
 bin_path: '{{ base_path }}/bin'
-helm_path: '{{ base_path }}/helm'
+helm2_path: '{{ base_path }}/helm2'
+helm3_path: '{{ base_path }}/helm3'
 req_paths:
   - '{{ arc_path }}'
   - '{{ bin_path }}'
-  - '{{ helm_path }}'
+  - '{{ helm2_path }}'
+  - '{{ helm3_path }}'
 cleanup_paths:
   - '{{ arc_path }}'
 archives:
-  - name: 'helm'
-    url: 'https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz'
-    dest: '{{ helm_path }}'
+  - name: 'helm2'
+    url: 'https://get.helm.sh/helm-v2.16.3-linux-amd64.tar.gz'
+    dest: '{{ helm2_path }}'
+  - name: 'helm3'
+    url: 'https://get.helm.sh/helm-v3.1.1-linux-amd64.tar.gz'
+    dest: '{{ helm3_path }}'
   - name: 'packer'
-    url: 'https://releases.hashicorp.com/packer/1.4.5/packer_1.4.5_linux_amd64.zip'
+    url: 'https://releases.hashicorp.com/packer/1.5.4/packer_1.5.4_linux_amd64.zip'
+    dest: '{{ bin_path }}'
+  - name: 'terraform'
+    url: 'https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip'
     dest: '{{ bin_path }}'
 helm:
   binaries:
-    - helm
-    - tiller
+    - name: helm2
+      src: '{{ helm2_path }}/linux-amd64/helm'
+    - name: tiller
+      src: '{{ helm2_path }}/linux-amd64/tiller'
+    - name: helm3
+      src: '{{ helm3_path }}/linux-amd64/helm'
+    - name: helm
+      src: '{{ bin_path }}/helm2'
   plugins: []

@@ -31,15 +31,19 @@
 - name: Setup helm binaries
   file:
     state: link
-    src: '{{ helm_path }}/linux-amd64/{{ item }}'
-    dest: '{{ bin_path }}/{{ item }}'
+    src: '{{ item.src }}'
+    dest: '{{ bin_path }}/{{ item.name }}'
   with_items: '{{ helm.binaries }}'
 
 - name: Initialize helm
-  shell: '{{ bin_path }}/helm init --client-only'
+  shell: '{{ bin_path }}/helm2 init --client-only'
 
-- name: Install helm plugins
-  shell: '{{ bin_path }}/helm plugin install {{ item.url }} --version {{ item.version }}'
+- name: Install helm plugins for helm2
+  shell: '{{ bin_path }}/helm2 plugin install {{ item.url }} --version {{ item.version }}'
+  with_items: '{{ helm.plugins }}'
+
+- name: Install helm plugins for helm3
+  shell: '{{ bin_path }}/helm3 plugin install {{ item.url }} --version {{ item.version }}'
   with_items: '{{ helm.plugins }}'
 
 - name: Cleanup unneeded files or directories
