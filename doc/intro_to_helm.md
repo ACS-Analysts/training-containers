@@ -60,40 +60,46 @@ Also note that helm respects YAML objects. Our `helloArgs` value is an array to 
 the `args` value in the resource file.
 
 ### Perform syntax validation of chart
-```
-$ helm lint hello
+```shell script
+sandbox$ helm lint hello
 ```
 
 ### Setup environment
 Don't forget to push your image to the registry on your minikube cluster.
 
-```
-$ docker push localhost:5000/hello
+```shell script
+sandbox$ docker push localhost:5000/hello
 ```
 
 NOTE: Docker Desktop users on MacOS and Windows who are not using the sandbox
 VM need to remember to use `host.docker.internal` rather than `localhost`.
 
-Once the cluster is up you need to setup helm in the cluster.
+#### Helm v2 vs Helm v3
+The sandbox now defaults to using helm v3. If you would still like to use helm
+v2 you will need to take some extra steps.
 
-```
-$ helm init
+First, because the sandbox defaults to helm v3, you will need to use the `helm2`
+command instead of just `helm`. Second, helm v2 requires that the `tiller`
+component be deployed in any cluster you want to use. Once the cluster is up you
+need to setup helm in the cluster.
+
+```shell script
+sandbox$ helm2 init
 ```
 
-This installs the "tiller" component of helm in the `kube-system` namespace. The
-forthcoming helm 3.0 is expected to eliminate tiller.
+This installs the "tiller" component of helm in the `kube-system` namespace.
 
 ### Validate template on server
 To have the server output the template without passing the data on to k8s:
 
-```
-$ helm install --dry-run --debug hello
+```shell script
+sandbox$ helm install --dry-run --debug hello
 ```
 
 Then try testing passing an argument to the chart:
 
-```
-$ helm install --dry-run --debug hello --set 'helloArgs[0]=Ben'
+```shell script
+sandbox$ helm install --dry-run --debug hello --set 'helloArgs[0]=Ben'
 ```
 
 The output should look similar to the [pod-args.yaml](../deploy/pod-args.yaml)
@@ -102,8 +108,8 @@ resource file we used in the previous module.
 ### Install the chart
 OK, it's finally time to install a "release" of our chart:
 
-```
-$ helm install hello
+```shell script
+sandbox$ helm install hello
 ```
 
 Note the "NAME" of the release is made up of two random words, usually a verb
@@ -113,24 +119,24 @@ the pod name in case multiple releases are installed at the same time.
 
 Give the pod a couple seconds to start. Let's list the pods on the cluster:
 
-```
-$ kubectl get po
+```shell script
+sandbox$ kubectl get po
 ```
 
 ## Overriding the release name
 If for some reason you don't like the randomly generated release name you can
 override the name at install:
 
-```
-$ helm install hello --name foo
+```shell script
+sandbox$ helm install hello --name foo
 ```
 
 ## Removing a helm release
 To remove the helm release and all it's resources from the cluster pass the
 release name from above to the `helm delete` command:
 
-```
-$ helm delete guiding-ibis
+```shell script
+sandbox$ helm delete guiding-ibis
 ```
 
 ## Passing values to helm
@@ -140,8 +146,8 @@ YAML file containing the values to be overridden to `helm install` using the
 `-f` or `--values` options. For single values though we can use the `--set`
 option. For instance, to pass an argument to our container:
 
-```
-$ helm install hello --set 'helloArgs[0]=Ben'
+```shell script
+sandbox$ helm install hello --set 'helloArgs[0]=Ben'
 ```
 
 In this case we have to specify element zero because helloArgs is an array.
@@ -151,8 +157,8 @@ In production environments charts are usually stored in a chart repository
 rather than being run from the local filesystem. You can get a list of your
 currently configured chart repos:
 
-```
-$ helm repo list
+```shell script
+sandbox$ helm repo list
 ```
 
 You should have at a minimum two repos: "stable" and "local". The stable

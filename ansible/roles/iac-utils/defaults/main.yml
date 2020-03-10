@@ -33,5 +33,5 @@ helm:
     - name: helm3
       src: '{{ helm3_path }}/linux-amd64/helm'
     - name: helm
-      src: '{{ bin_path }}/helm2'
+      src: '{{ bin_path }}/helm3'
   plugins: []
