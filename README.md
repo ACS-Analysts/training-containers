@@ -37,3 +37,4 @@ The training modules are intended to be read in order.
 * [Intro to Helm](doc/intro_to_helm.md)
 * [Intro to Networking in Docker](doc/intro_to_networking_in_docker.md)
 * [Intro to Networking in Kubernetes](doc/intro_to_networking_in_k8s.md)
+* [Intro to Hashicorp Vault](doc/intro_to_vault.md)
