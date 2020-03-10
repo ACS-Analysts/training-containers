@@ -5,6 +5,7 @@
 
 - name: Cleanup apt cache
   command: apt-get clean && apt-get autoclean
+  warn: false
 
 - name: Fill empty space with zeros
   command: '{{ item }}'
