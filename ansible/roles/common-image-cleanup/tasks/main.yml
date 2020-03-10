@@ -5,10 +5,12 @@
 
 - name: Cleanup apt cache
   command: apt-get clean && apt-get autoclean
+  args:
     warn: false
 
 - name: Fill empty space with zeros
   command: '{{ item }}'
+  args:
     warn: false
   with_items:
     - dd if=/dev/zero of=/zero bs=1M
