@@ -34,7 +34,7 @@
     dest: '/tmp'
 
 - name: Install pip2
-  shell: 'python /tmp/get-pip.py'
+  shell: 'python2 /tmp/get-pip.py'
 
 - name: Install pip3
   shell: 'python3 /tmp/get-pip.py'
