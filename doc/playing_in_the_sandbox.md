@@ -17,8 +17,8 @@ box for you.
 ## Prerequisites
 Using the sandbox only requires the following:
 
-* [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.5)
-* [VirtualBox](https://www.virtualbox.org/) (v6.0.14)
+* [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.7)
+* [VirtualBox](https://www.virtualbox.org/) (v6.0.18)
 
 ## Configuring Host-Only Networking
 Host-Only networking is a way of configuring your VirtualBox virtual machine to
