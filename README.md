@@ -33,7 +33,7 @@ then please read [Running the Demos On Your Local Machine](doc/local_machine_dem
 The training modules are intended to be read in order.
 
 * [Intro to Containers and Docker](mod/intro_to_containers/README.md)
-* [Intro to Kubernetes](doc/intro_to_kubernetes.md)
+* [Intro to Kubernetes](mod/intro_to_kubernetes/README.md)
 * [Intro to Helm](doc/intro_to_helm.md)
 * [Intro to Networking in Docker](doc/intro_to_networking_in_docker.md)
 * [Intro to Networking in Kubernetes](doc/intro_to_networking_in_k8s.md)
