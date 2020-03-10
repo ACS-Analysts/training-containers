@@ -15,8 +15,9 @@
       "type": "shell",
       "inline": [
         "sudo apt-get update",
-        "sudo apt-get install -y python python-apt aptitude",
-        "sudo apt-get autoremove -y"
+        "sudo apt-get install -y python-apt python3-apt aptitude",
+        "sudo apt-get autoremove -y",
+        "sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10"
       ]
     },
     {
