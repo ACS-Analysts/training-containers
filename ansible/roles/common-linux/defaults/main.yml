@@ -9,6 +9,7 @@ debian_pkgs:
   - python3
   - python3-distutils
   - unzip
+  - liblz4-tool
   - vim
   - socat
 python_pkgs:
