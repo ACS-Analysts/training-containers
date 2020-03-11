@@ -47,7 +47,7 @@ The training modules are intended to be read in order.
 
 * [Intro to Containers and Docker](mod/intro_to_containers/README.md)
 * [Intro to Kubernetes](mod/intro_to_kubernetes/README.md)
-* [Intro to Helm](doc/intro_to_helm.md)
+* [Intro to Helm](mod/intro_to_helm/README.md)
 * [Intro to Networking in Docker](mod/intro_to_networking_in_docker/README.md)
 * [Intro to Networking in Kubernetes](doc/intro_to_networking_in_k8s.md)
 * [Intro to Hashicorp Vault](mod/intro_to_vault/README.md)
