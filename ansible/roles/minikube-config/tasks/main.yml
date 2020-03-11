@@ -4,3 +4,4 @@
 
 - name: Configure Kubernetes version
   command: minikube config set kubernetes-version '{{ minikube.kubernetes_version }}'
+  when: minikube.kubernetes_version
