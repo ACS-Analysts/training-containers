@@ -1,8 +1,7 @@
 # Introduction to Networking in Docker
 ## Summary
-In this module we will investigate the basics of networking in Docker. Since
-our original container only outputted a log, we will introduce a new container
-that uses a simple socket connection so we can test out the different network
+In this module we will investigate the basics of networking in Docker. Since our original container only outputted a
+log, we will introduce a new container that uses a simple socket connection so we can test out the different network
 configurations.
 
 ## Getting Ready

@@ -33,6 +33,7 @@ prior to beginning this demo:
 * [curl](https://github.com/curl/curl)
 * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) (v1.8.1)
 * [helm](https://github.com/helm/helm) (v3.1.1)
+* [terraform](https://)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.7)
 * [VirtualBox](https://www.virtualbox.org/) (v6.0.18)
 
