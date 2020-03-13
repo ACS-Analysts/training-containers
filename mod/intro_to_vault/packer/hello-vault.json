@@ -1,0 +1,55 @@
+{
+  "_comment": "hello-vault test image",
+  "variables": {
+    "base": "openjdk:11",
+    "server": "localhost:5000",
+    "image": "hello-vault",
+    "localImage": "{{ user `image` }}-{{ isotime \"2006-01-02-1502\" }}",
+    "tag": "latest"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "{{ user `base` }}",
+      "commit": true,
+      "name": "{{ user `localImage` }}",
+      "changes": [
+        "EXPOSE 8080/tcp",
+        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.3.0.jar\"]"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "mkdir -p /opt/hello/lib"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "target/containerdemo-0.3.0-jar-with-dependencies.jar",
+      "destination": "/opt/hello/lib/containerdemo-0.3.0.jar"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "{{ user `localImage` }}",
+        "tag": "{{ user `tag` }}"
+      },
+      {
+        "type": "docker-tag",
+        "repository": "{{ user `image` }}",
+        "tag": "{{ user `tag` }}"
+      },
+      {
+        "type": "docker-tag",
+        "repository": "{{ user `server`}}/{{ user `image` }}",
+        "tag": "{{ user `tag` }}"
+      },
+      "docker-push"
+    ]
+  ]
+}

@@ -10,3 +10,6 @@ target/
 *.tgz
 .vagrant/
 output-vagrant/
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
