@@ -12,5 +12,6 @@ debian_pkgs:
   - liblz4-tool
   - vim
   - socat
+  - jq
 python_pkgs:
   - requests
