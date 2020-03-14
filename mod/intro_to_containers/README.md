@@ -5,13 +5,13 @@ Docker. The app only logs output to STDOUT and performs not network functions. W
 running container and perform basic management functions.
 
 ## Assumptions
-All commands and file locations are assumed to be run from the root of the module directory.
+All commands and file locations are assumed to be run from the repository root.
 
 ## Building a Container
 ### Building the JAR file
 We need a JAR file to run our application from. The application can be found in [src/main/java](src/main/java). We will
 use the [Maven](https://maven.apache.org/) build tool to create a JAR file containing our classes and any dependencies
-we may need. The maven build is controlled by the [pom.xml](pom.xml) file.
+we may need. The maven build is controlled by the [pom.xml](../../pom.xml) file.
 
 ```shell script
 sandbox$ mvn package
@@ -91,7 +91,7 @@ sandbox$ docker rm --force hello
 ### Running the image with additional parameters
 The app supports changing the message by passing a command line parameter. This can be passed to the `docker run` command:
 ```shell script
-sandbox$ docker run -d --name hello hello Ben
+sandbox$ docker run -d --name hello hello Superman
 ```
 
 And then check the logs to see the results:
@@ -101,8 +101,8 @@ sandbox$ docker logs hello
 
 The message should now include your parameter:
 ```
-Hello Ben! (1)
-Hello Ben! (2)
+Hello Superman! (1)
+Hello Superman! (2)
 ```
 
 ## Managing Docker

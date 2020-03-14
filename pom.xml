@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.analysts.containerdemo</groupId>
   <artifactId>containerdemo</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
@@ -56,6 +56,38 @@
                     <manifest>
                       <mainClass>
                         com.analysts.containerdemo.HelloSocket
+                      </mainClass>
+                    </manifest>
+                  </archive>
+                  <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>vault</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <finalName>${project.artifactId}-${project.version}-vault</finalName>
+                  <archive>
+                    <manifest>
+                      <mainClass>
+                        com.analysts.containerdemo.HelloVault
                       </mainClass>
                     </manifest>
                   </archive>

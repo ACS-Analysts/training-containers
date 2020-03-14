@@ -1,5 +1,6 @@
 # Intro to Hashicorp Vault
 ## Summary
+TODO
 
 ## Getting Ready
 ### Using the sandbox
@@ -27,10 +28,10 @@ production servers. For more information about setting up a production Vault ser
 [Vault training site](https://learn.hashicorp.com/vault).
 
 The first step is to install Vault via helm. Hashicorp does not currently provide a helm repo so we've pre-cloned a copy
-into the `deploy/helm/vault/chart/vault` directory.
+into the [deploy/helm/vault](../../deploy/helm/vault) directory.
 
 ```shell script
-sandbox$ helm install vault --set='server.dev.enabled=true' deploy/helm/vault/chart/vault
+sandbox$ helm install vault --set='server.dev.enabled=true' deploy/helm/vault
 ```
 
 The first few commands we will need to run on the `vault-0` pod. After that we can interact with the vault server using
@@ -62,7 +63,7 @@ With that out of the way, let's check the status of the vault server:
 sandbox$ vault status
 ```
 
-Next we can create a policy for our application. We've provided a very basic policy file in the `./vault` directory to
+Next we can create a policy for our application. We've provided a very basic policy file in the [vault](../../vault) directory to
 make things easy. The policy gives read access to all the secrets in the `secrets` namespace. Clearly, a much more
 restrictive policy would be required for production environments. Once our policy is created we will associate the
 policy with the `kubernetes` auth method we set up previously.
@@ -83,9 +84,8 @@ sandbox$ vault kv put secret/hello secret="You are Clark Kent."
 sandbox$ vault kv get secret/hello
 ```
 
-## Build a test app
-
-We have a new test class call [HelloVault.java](src/main/java/com/analysts/containerdemo/HelloVault.java) that now
+## Deploy a test app
+We have a new test class call [HelloVault.java](../../src/main/java/com/analysts/containerdemo/HelloVault.java) that now
 optionally reads a file to reveal secrets about whoever it says hello to. We're using a build process similar to what
 we've done before. Notice however that we've improved our packer file to automatically tag and push our image to our
 "remote" registry.
@@ -100,7 +100,7 @@ to use helm to deploy our application and Vault. For more information on the bas
 [Intro to Helm](../intro_to_helm/README.md).
 
 ```shell script
-sandbox$ helm install hello-vault deploy/helm/hello-vault/chart/hello-vault
+sandbox$ helm install hello-vault deploy/helm/hello-vault
 ```
 
 The new `hello-vault` helm chart defines the following Kubernetes resources for our application:
@@ -132,14 +132,14 @@ sandbox$ nc -d ${HELLO_IP} 8080
 We haven't given it any secrets yet so it should tell us that:
 
 ```text
-Hello world! You have no secrets. (0)
+Hello world! You have no secrets. (1)
 ```
 
 Let's redeploy our app, this time with some annotations that tell the vault-agent to mount our secret to the pod. To see
-what values we changed take a look at the [override-values.yaml](deploy/helm/hello-vault/override-values.yaml) file.
+what values we changed take a look at the [override-values.yaml](../../deploy/helm/superman.yaml) file.
 
 ```shell script
-sandbox$ helm upgrade hello-vault --values deploy/helm/hello-vault/override-values.yaml deploy/helm/hello-vault/chart/hello-vault
+sandbox$ helm upgrade hello-vault --values deploy/helm/superman.yaml deploy/helm/hello-vault
 ```
 
 Let's try talking to our app again.
@@ -151,7 +151,8 @@ sandbox$ nc -d ${HELLO_IP} 8080
 Oh no! Superman's secret has been revealed!
 
 ```text
-Hello Superman! I know your secret: You are Clark Kent. (0)
+Hello Superman! I know your secret: You are Clark Kent. (1)
 ```
 
-So how does all this work?
+## How it works
+TODO

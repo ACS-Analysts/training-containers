@@ -56,9 +56,9 @@ You should get something back similar to:
 ### Adding docker images to our registry
 Now that we have a working registry we can add some docker images to it. Let's create a new container that supports a
 very basic socket connection and push it to the registry. The new class is
-[HelloSocket](src/main/java/com/analysts/containerdemo/HelloSocket.java). The new JAR file uses the HelloSocket class
+[HelloSocket](../../src/main/java/com/analysts/containerdemo/HelloSocket.java). The new JAR file uses the HelloSocket class
 as the default class. The container just runs the JAR again. If you're interested you can verify this for yourself in
-the [hello-socket.json](packer/hello-socket.json) file.
+the [hello-socket.json](../../packer/hello-socket.json) file.
 
 Where you run the next few commands depends on if you're using your local host or the sandbox VM. Run the commands in
 the same place you built the `hello` demo code.

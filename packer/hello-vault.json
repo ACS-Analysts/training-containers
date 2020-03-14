@@ -15,7 +15,7 @@
       "name": "{{ user `localImage` }}",
       "changes": [
         "EXPOSE 8080/tcp",
-        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.3.0.jar\"]"
+        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.3.0-vault.jar\"]"
       ]
     }
   ],
@@ -28,8 +28,8 @@
     },
     {
       "type": "file",
-      "source": "target/containerdemo-0.3.0-jar-with-dependencies.jar",
-      "destination": "/opt/hello/lib/containerdemo-0.3.0.jar"
+      "source": "target/containerdemo-0.3.0-vault-jar-with-dependencies.jar",
+      "destination": "/opt/hello/lib/containerdemo-0.3.0-vault.jar"
     }
   ],
   "post-processors": [

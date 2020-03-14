@@ -5,8 +5,7 @@
       "image": "openjdk:11",
       "commit": true,
       "changes": [
-        "EXPOSE 8080/tcp",
-        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.2.0-socket.jar\"]"
+        "ENTRYPOINT [\"java\", \"-jar\", \"/opt/hello/lib/containerdemo-0.3.0.jar\"]"
       ]
     }
   ],
@@ -19,15 +18,15 @@
     },
     {
       "type": "file",
-      "source": "target/containerdemo-0.2.0-socket-jar-with-dependencies.jar",
-      "destination": "/opt/hello/lib/containerdemo-0.2.0-socket.jar"
+      "source": "target/containerdemo-0.3.0-jar-with-dependencies.jar",
+      "destination": "/opt/hello/lib/containerdemo-0.3.0.jar"
     }
   ],
   "post-processors": [
     [
       {
         "type": "docker-tag",
-        "repository": "hello-socket",
+        "repository": "hello",
         "tag": "latest"
       }
     ]

@@ -17,6 +17,7 @@ public class HelloVault {
         if (args.length > 1 && !args[1].isBlank()) secret_path = args[1];
 
         while(true){
+            n++;
             Socket sock = listener.accept();
 
             PrintWriter pw = new PrintWriter(sock.getOutputStream(), true);
@@ -44,7 +45,6 @@ public class HelloVault {
             pw.printf(" (%d)\n", n);
 
             sock.close();
-            n++;
         }
     }
 }

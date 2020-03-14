@@ -43,9 +43,9 @@ The objects are as follows:
 
 ### Basic templating
 Spend some time familiarizing yourself with the files. In particular pay attention to the
-[values.yaml](deploy/helm/hello/values.yaml) and [pod.yaml](deploy/helm/hello/templates/pod.yaml) files. The `pod.yaml`
+[values.yaml](../../deploy/helm/hello/values.yaml) and [pod.yaml](../../deploy/helm/hello/templates/pod.yaml) files. The `pod.yaml`
 file should look familiar. This is because it's based on the first
-[resource file](../intro_to_kubernetes/deploy/pod-args.yaml) we created in a previous module. 
+[resource file](../../deploy/pod-args.yaml) we created in a previous module. 
 
 Notice that we've replaced some values with template objects. Template objects are denoted by double curly braces
 (`{{ }}`). Values passed to the chart are in the `.Values` scope. To see the values we've specified see the
@@ -54,7 +54,7 @@ that helm respects YAML objects. Our `helloArgs` value is an array to match the 
 
 ### Perform syntax validation of chart
 ```shell script
-sandbox$ helm lint hello
+sandbox$ helm lint deploy/helm/hello
 ```
 
 ### Setup environment
@@ -85,23 +85,23 @@ This installs the "tiller" component of helm in the `kube-system` namespace.
 To have the server output the template without passing the data on to k8s:
 
 ```shell script
-sandbox$ helm install --dry-run --debug hello
+sandbox$ helm install --dry-run --debug deploy/helm/hello
 ```
 
 Then try testing passing an argument to the chart:
 
 ```shell script
-sandbox$ helm install --dry-run --debug hello --set 'helloArgs[0]=Ben'
+sandbox$ helm install --dry-run --debug deploy/helm/hello --set 'helloArgs[0]=Superman'
 ```
 
-The output should look similar to the [pod-args.yaml](../intro_to_kubernetes/deploy/pod-args.yaml) resource file we used
+The output should look similar to the [pod-args.yaml](../../deploy/pod-args.yaml) resource file we used
 in the previous module.
 
 ### Install the chart
 OK, it's finally time to install a "release" of our chart:
 
 ```shell script
-sandbox$ helm install hello
+sandbox$ helm install deploy/helm/hello
 ```
 
 Note the "NAME" of the release is made up of two random words, usually a verb and an animal name. The output also tells
@@ -118,7 +118,7 @@ sandbox$ kubectl get po
 If for some reason you don't like the randomly generated release name you can override the name at install:
 
 ```shell script
-sandbox$ helm install hello --name foo
+sandbox$ helm install deploy/helm/hello --name foo
 ```
 
 ## Removing a helm release
@@ -130,13 +130,13 @@ sandbox$ helm delete guiding-ibis
 ```
 
 ## Passing values to helm
-As mentioned above, the default values for the chart are in the [values.yaml](deploy/helm/hello/values.yaml)
+As mentioned above, the default values for the chart are in the [values.yaml](../../deploy/helm/hello/values.yaml)
 file. There are multiple ways to override the values. Most common is pass a YAML file containing the values to be
 overridden to `helm install` using the `-f` or `--values` options. For single values though we can use the `--set`
 option. For instance, to pass an argument to our container:
 
 ```shell script
-sandbox$ helm install hello --set 'helloArgs[0]=Ben'
+sandbox$ helm install deploy/helm/hello --set 'helloArgs[0]=Superman'
 ```
 
 In this case we have to specify element zero because helloArgs is an array.

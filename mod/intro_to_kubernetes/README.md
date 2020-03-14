@@ -182,7 +182,7 @@ command uses YAML files to create resources within the cluster. The [deploy](dep
 directory contains several YAML files with example resources we can create.
 
 Let's create a pod that passes a positional argument to JAR file so we can
-change the output of our app. Take a look at the [deploy/pod-args.yaml](deploy/pod-args.yaml)
+change the output of our app. Take a look at the [deploy/pod-args.yaml](../../deploy/pod-args.yaml)
 file. Note that our pod will have a single container. Also note the optional
 `args` line which specifies what we want to pass.
 
@@ -217,7 +217,7 @@ sandbox$ kubectl delete po hello
 
 ## Multiple containers in one pod
 Let's create two copies of our container inside one pod. Look at the
-[deploy/pods-multi.yaml](deploy/pod-multi.yaml) file. Note that we
+[deploy/pods-multi.yaml](../../deploy/pod-multi.yaml) file. Note that we
 are now defining two containers in the pod, each with different output.
 
 Create the new pod:

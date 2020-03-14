@@ -14,11 +14,11 @@ public class HelloSocket {
         if (args.length > 0 && !args[0].isBlank()) name = args[0];
 
         while(true){
+            n++;
             Socket sock = listener.accept();
             new PrintWriter(sock.getOutputStream(), true).
                 printf("Hello %s! (%d)\n", name, n);
             sock.close();
-            n++;
         }
     }
 }
