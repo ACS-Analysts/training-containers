@@ -1,7 +1,14 @@
-imageRepository: localhost:5000/hello-vault
-imageTag: latest
-helloArgs: []
-replicas: 1
+deployment:
+  imageRepository: localhost:5000/hello-vault
+  imageTag: latest
+  args: []
+  replicas: 1
+  labels: {}
+  annotations: {}
+
+serviceaccount:
+  name: hello
+
 service:
   enabled: true
   port: 8080

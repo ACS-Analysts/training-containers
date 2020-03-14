@@ -1,0 +1,8 @@
+deployment:
+  args: ["Superman"]
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/agent-inject-secret-hello: "secret/hello"
+    vault.hashicorp.com/agent-inject-template-hello: |-
+      {{- with secret "secret/hello" -}}{{ .Data.data.secret }}{{- end }}
+    vault.hashicorp.com/role: "hello"

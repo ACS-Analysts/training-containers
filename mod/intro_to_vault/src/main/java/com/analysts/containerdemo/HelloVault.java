@@ -9,7 +9,7 @@ public class HelloVault {
     public static void main(String[] args) throws IOException{
         int n = 0;
         String name = "world";
-        String secret_path = "/etc/secrets/hello_secret";
+        String secret_path = "/vault/secrets/hello";
         String charsetName = "UTF-8";
         ServerSocket listener = new ServerSocket(8080);
 
@@ -29,14 +29,14 @@ public class HelloVault {
                 InputStreamReader in = new InputStreamReader(fis, charsetName);
                 int i;
                 while ((i=in.read()) != -1) {
-                    sb.append(i);
+                    sb.append((char) i);
                 }
             } catch (FileNotFoundException e) {
                 // Do nothing
             }
 
             if (sb.length() > 0) {
-                pw.printf(" I know your secret: '%s'.", sb.toString());
+                pw.printf(" I know your secret: %s", sb.toString());
             } else {
                 pw.print(" You have no secrets.");
             }
