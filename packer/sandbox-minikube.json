@@ -7,7 +7,8 @@
       "communicator": "ssh",
       "box_name": "sandbox-minikube",
       "skip_add": true,
-      "add_force": true
+      "add_force": true,
+      "template": "packer/Vagrantfile"
     }
   ],
   "provisioners": [
@@ -23,6 +24,13 @@
     {
       "type": "ansible",
       "playbook_file": "ansible/sandbox-minikube.yml"
+    },
+    {
+      "type": "shell-local",
+      "inline": [
+        "VBoxManage controlvm $(VBoxManage list vms | sed -n '/output-vagrant_source/{s/.*{\\(.*\\)}.*/\\1/;p;}') poweroff",
+        "VBoxManage storageattach $(VBoxManage list vms | sed -n '/output-vagrant_source/{s/.*{\\(.*\\)}.*/\\1/;p;}') --storagectl SCSI --device 0 --port 6 --medium none"
+      ]
     }
   ]
 }

@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "source", autostart: false do |source|
+	source.vm.box = "{{.SourceBox}}"
+	config.ssh.insert_key = {{.InsertKey}}
+  end
+  config.vm.define "output" do |output|
+	output.vm.box = "{{.BoxName}}"
+	output.vm.box_url = "file://package.box"
+	config.ssh.insert_key = {{.InsertKey}}
+  end
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+    vb.customize [ "modifyvm", :id, "--audio", "none" ]
+    vb.customize [ "storageattach", :id, "--storagectl", "SCSI", "--device", "0", "--port", "6", "--type", "dvddrive", "--medium", "/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso", "--mtype", "readonly" ]
+  end
+
+  {{ if ne .SyncedFolder "" -}}
+    config.vm.synced_folder "{{.SyncedFolder}}", "/vagrant"
+  {{- else -}}
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+  {{- end}}
+end
