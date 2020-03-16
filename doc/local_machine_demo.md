@@ -35,7 +35,7 @@ prior to beginning this demo:
 * [helm](https://github.com/helm/helm) (v3.1.1)
 * [terraform](https://)
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.7)
-* [VirtualBox](https://www.virtualbox.org/) (v6.0.18)
+* [VirtualBox](https://www.virtualbox.org/) (v6.1.4)
 
 The netcat command (`nc`) should already be installed on Linux and Mac OS X
 machines. Windows users may be forced to use curl instead. This works, you'll

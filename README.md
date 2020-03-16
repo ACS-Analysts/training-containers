@@ -17,7 +17,7 @@ installing all the required applications. The sandbox contains all the prerequis
 Using the sandbox only requires the following:
 
 * [vagrant](https://www.vagrantup.com/downloads.html) (v2.2.7)
-* [VirtualBox](https://www.virtualbox.org/) (v6.0.18)
+* [VirtualBox](https://www.virtualbox.org/) (v6.1.4)
 * netcat
 
 The netcat command (`nc`) should already be installed on Linux and Mac OS X
