@@ -1,3 +1,6 @@
 [submodule "vault-helm"]
 	path = deploy/helm/vault
 	url = git@github.com:hashicorp/vault-helm.git
+[submodule "consul-helm"]
+	path = deploy/helm/consul
+	url = https://github.com/hashicorp/consul-helm.git
