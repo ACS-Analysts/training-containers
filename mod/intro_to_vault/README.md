@@ -156,3 +156,6 @@ Hello Superman! I know your secret: You are Clark Kent. (1)
 
 ## How it works
 TODO
+
+## Other topics
+- [Security](security.md)
