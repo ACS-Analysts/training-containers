@@ -136,7 +136,7 @@ Hello world! You have no secrets. (1)
 ```
 
 Let's redeploy our app, this time with some annotations that tell the vault-agent to mount our secret to the pod. To see
-what values we changed take a look at the [override-values.yaml](../../deploy/helm/superman.yaml) file.
+what values we changed take a look at the [superman.yaml](../../deploy/helm/superman.yaml) file.
 
 ```shell script
 sandbox$ helm upgrade hello-vault --values deploy/helm/superman.yaml deploy/helm/hello-vault
