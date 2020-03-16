@@ -91,7 +91,7 @@ we've done before. Notice however that we've improved our packer file to automat
 "remote" registry.
 
 ```shell script
-sandbox$ mvn package
+sandbox$ mvn -Pvault package
 sandbox$ packer build packer/hello-vault.json
 ```
 
