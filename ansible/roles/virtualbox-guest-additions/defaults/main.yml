@@ -1,0 +1,7 @@
+---
+vbox_ga:
+  mount_device: /dev/sr0
+  mount_point: /mnt
+  mount_opts: -o ro
+  wrapper_args: --nox11
+  installer_args: --force

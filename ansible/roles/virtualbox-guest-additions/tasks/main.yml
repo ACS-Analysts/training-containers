@@ -1,0 +1,16 @@
+---
+- name: Mount ISO
+  command: 'mount {{ vbox_ga.mount_opts }} {{ vbox_ga.mount_device }} {{ vbox_ga.mount_point }}'
+  args:
+    warn: false
+
+- name: Install VirtualBox Guest Additions
+  command: './VBoxLinuxAdditions.run {{ vbox_ga.wrapper_args }} -- {{ vbox_ga.installer_args }}'
+  args:
+    chdir: '{{ vbox_ga.mount_point }}'
+  ignore_errors: yes
+
+- name: Unmount ISO
+  command: 'umount {{ vbox_ga.mount_point }}'
+  args:
+    warn: false

@@ -11,8 +11,8 @@
   hosts: default
   become: yes
   roles:
+    - virtualbox-guest-additions
     - geerlingguy.java
-    - dev-utils
     - iac-utils
     - minikube
   vars:

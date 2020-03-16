@@ -1,4 +1,5 @@
 ---
 debian_pkgs:
+  - build-essential
   - maven
   - git
