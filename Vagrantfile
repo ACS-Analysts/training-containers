@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
       config.vm.network "private_network", ip: "172.16.0.2", name: "vboxnet0", adapter: 2
   end
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "2048"
+    vb.memory = "4096"
     vb.cpus = 2
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
     vb.customize [ "modifyvm", :id, "--audio", "none" ]
