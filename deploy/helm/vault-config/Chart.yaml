@@ -1,0 +1,8 @@
+apiVersion: v1
+name: vault-config
+version: 0.1.0
+description: Configure Hashicorp Vault using Appscode vault-operator
+maintainers: # (optional)
+  - name: Ben Maas
+    email: ben.maas@analysts.com
+appVersion: 0.1.0

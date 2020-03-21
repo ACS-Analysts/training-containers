@@ -1,0 +1,12 @@
+{{- if .Values.server.configSource.configMap }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+  namespace: {{ .Release.Namespace }}
+data:
+  vault.hcl: |
+    {{- range $key, $value := .Values.configMap.data }}
+    {{ $key }} = {{ $value }}
+    {{- end }}
+{{- end }}

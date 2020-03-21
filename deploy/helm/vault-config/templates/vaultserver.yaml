@@ -1,0 +1,40 @@
+apiVersion: kubevault.com/v1alpha1
+kind: VaultServer
+metadata:
+  name: vault
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.server.replicas }}
+  version: {{ .Values.server.version }}
+  {{- with .Values.server }}
+  {{- if .tls }}
+  tls:
+    {{- toYaml .tls | nindent 4 }}
+  {{- end }}
+  {{- if .configSource }}
+  configSource:
+    {{- toYaml .configSource | nindent 4 }}
+  {{- end }}
+  {{- if .dataSources }}
+  dataSources:
+    {{- toYaml .dataSources | nindent 4 }}
+  {{- end }}
+  backend:
+    {{- toYaml .backend | nindent 4 }}
+  {{- if .unsealer }}
+  unsealer:
+    {{- toYaml .unsealer | nindent 4 }}
+  {{- end }}
+  {{- if .serviceTemplate }}
+  serviceTemplate:
+    {{- toYaml .serviceTemplate | nindent 4 }}
+  {{- end }}
+  {{- if .podTemplate }}
+  podTemplate:
+    {{- toYaml .podTemplate | nindent 4 }}
+  {{- end }}
+  {{- if .authMethods }}
+  authMethods:
+    {{- toYaml .authMethods | nindent 4 }}
+  {{- end }}
+  {{- end }}

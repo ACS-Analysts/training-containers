@@ -1,0 +1,44 @@
+server:
+  version: "1.3.2"
+  # tls: # optional
+  #   tlsSecret: <tls_assets_secret_name>
+  #   caBundle: <pem_coded_ca>
+  configSource: # optional
+    configMap:
+      name: vault-extra-config
+  # dataSources: # optional
+  #   - secret:  # mounted on /etc/vault/data/data-0
+  #      secretName: custom-cert
+  #  - configMap: # mounted on /etc/vault/data/data-1
+  #      name: special-config
+  backend: # required
+    consul:
+      address: "http://consul-consul-server.vault.svc:8500"
+      path: "vault"
+  unsealer: # optional
+    secretShares: 4
+    secretThreshold: 2
+    mode:
+      kubernetesSecret:
+        secretName: vault-keys
+  serviceTemplate: # optional
+    spec:
+      type: NodePort
+  # podTemplate: # optional
+  #   spec:
+  #     resources:
+  #       requests:
+  #         memory: "64Mi"
+  #         cpu: "250m"
+  #       limits:
+  #         memory: "128Mi"
+  #         cpu: "500m"
+  authMethods: # optional
+    - type: kubernetes
+      description: Kubernetes
+      path: k8s
+
+configMap: # optional
+  name: vault-extra-config
+  data:
+    disable_mlock: true
