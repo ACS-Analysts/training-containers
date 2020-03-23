@@ -53,7 +53,7 @@ vault$ exit
 From here on in we can use the `vault` CLI. We need to setup some environment variables to get started:
 
 ```shell script
-sandbox$ export VAULT_ADDR=http://$(kubectl get service vault -o json | jq -r '.spec.clusterIP'):8200
+sandbox$ export VAULT_ADDR=http://$(kubectl get service vault -o jsonpath='{.spec.clusterIP}':8200
 sandbox$ export VAULT_TOKEN=root
 ```
 
@@ -120,7 +120,7 @@ sandbox$ kubectl get service
 Let's set an environment variable to make it easier to refer to the cluster IP our service got assigned:
 
 ```shell script
-sandbox$ HELLO_IP=$(kubectl get service hello-vault -o json | jq -r '.spec.clusterIP')
+sandbox$ HELLO_IP=$(kubectl get service hello-vault -o jsonpath='{.spec.clusterIP}')
 ```
 
 We should now be able to talk to our app.
